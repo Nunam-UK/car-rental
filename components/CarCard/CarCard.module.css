@@ -1,0 +1,159 @@
+.card {
+  width: 276px;
+  height: 424px;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 276px;
+  height: 268px;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.imageWrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(18, 20, 23, 0.5) 0%,
+    rgba(18, 20, 23, 0) 50%
+  );
+  pointer-events: none;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.favoriteBtn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin-bottom: 24px;
+}
+
+.mainInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  height: 20px;
+}
+
+.title,
+.price {
+  font-family: var(--font-manrope), sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #101828;
+}
+
+.accent {
+  color: #3470ff;
+}
+
+.detailsList {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 12px;
+  row-gap: 4px;
+  font-family: var(--font-manrope), sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #8d929a;
+  max-height: 44px;
+  overflow: hidden;
+}
+
+.detailsList span {
+  display: inline-flex;
+  align-items: center;
+}
+
+.detailsList span:not(:last-child)::after {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 16px;
+  background-color: rgba(18, 20, 23, 0.1);
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+.lineBreak {
+  flex-basis: 100%;
+  height: 0;
+}
+
+.detailsList span:nth-of-type(3)::after {
+  display: none;
+}
+
+.readMoreBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 44px;
+  padding: 12px;
+
+  background-color: #3470ff;
+  border-radius: 12px;
+  border: none;
+
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.43;
+
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.readMoreBtn:hover {
+  background-color: #0b44cd;
+}
+
+.favoriteBtn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  padding: 0;
+}
+
+.heartIcon {
+  width: 16px;
+  height: 16px;
+  display: block;
+}

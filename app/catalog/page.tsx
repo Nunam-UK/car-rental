@@ -1,6 +1,8 @@
+
+
 'use client';
 
-import { useEffect, useState, useCallback, useRef } from 'react';
+import { useEffect, useState, useCallback, useRef, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation'; 
 import api from '@/services/api';
 import { Car } from '@/types/car';
@@ -9,7 +11,8 @@ import { Filters } from '@/components/Filters/Filters';
 import { useCarStore } from '@/store/useCarStore';
 import css from './CatalogPage.module.css';
 
-export default function CatalogPage() {
+
+function CatalogList() {
   const searchParams = useSearchParams(); 
   const [cars, setCars] = useState<Car[]>([]);
   const [page, setPage] = useState(1);
@@ -72,7 +75,7 @@ export default function CatalogPage() {
   };
 
   return (
-    <div className={css.container}>
+    <>
       <Filters />
       <section className={css.carGrid}>
         {cars.length > 0 ? (
@@ -89,6 +92,17 @@ export default function CatalogPage() {
           Load more
         </button>
       )}
+    </>
+  );
+}
+
+
+export default function CatalogPage() {
+  return (
+    <div className={css.container}>
+      <Suspense fallback={<div className={css.loader}>Loading catalog...</div>}>
+        <CatalogList />
+      </Suspense>
     </div>
   );
 }
